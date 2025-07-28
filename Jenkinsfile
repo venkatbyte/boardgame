@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/careerbytecode/boardgame.git'
+                git branch: 'main', url: 'https://github.com/venkatbyte/boardgame.git'
             }
         }
         
@@ -41,7 +41,7 @@ pipeline {
         
         stage('Publish to Nexus') {
             steps {
-                withMaven(globalMavenSettingsConfig: '', jdk: '', mavenSettingsConfig: 'maven-new-app', traceability: true) {
+                withMaven(globalMavenSettingsConfig: 'maven-settings', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
                     sh 'mvn deploy'
                 }               
             }
