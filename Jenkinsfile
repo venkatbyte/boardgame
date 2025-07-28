@@ -28,7 +28,7 @@ pipeline {
                         -Dsonar.java.binaries=.
                         '''
                     }
-                    waitForQualityGate abortPipeline: fail
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
